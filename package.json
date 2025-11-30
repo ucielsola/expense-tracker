@@ -1,0 +1,26 @@
+{
+  "name": "tracker-v2-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal finance tracker monorepo with Telegram bot backend and web frontend",
+  "scripts": {
+    "dev": "pnpm --filter backend dev",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "build": "pnpm -r build",
+    "start": "pnpm --filter backend start",
+    "seed": "pnpm --filter backend seed",
+    "db:up": "pnpm --filter backend db:up",
+    "db:down": "pnpm --filter backend db:down",
+    "db:reset": "pnpm --filter backend db:reset"
+  },
+  "keywords": [
+    "monorepo",
+    "telegram",
+    "bot",
+    "postgresql",
+    "ai",
+    "finance-tracker"
+  ],
+  "author": "",
+  "license": "ISC"
+}

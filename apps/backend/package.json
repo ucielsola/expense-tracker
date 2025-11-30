@@ -1,0 +1,47 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Telegram bot with AI and PostgreSQL integration",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "seed": "tsx scripts/seed-initial-data.ts",
+    "migrate": "for file in migrations/*.sql; do [ -f \"$file\" ] && docker exec -i tracker_postgres psql -U postgres -d tracker_v2 < \"$file\" && echo \"Applied: $file\"; done",
+    "migrate:all": "npm run migrate",
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "db:reset": "docker-compose down -v && docker-compose up -d && sleep 5 && npm run migrate:all",
+    "db:wait": "until docker exec tracker_postgres pg_isready -U postgres -d tracker_v2 > /dev/null 2>&1; do echo 'Waiting for database...'; sleep 2; done; echo 'Database is ready!'",
+    "env:setup": "[ ! -f .env ] && cp .env.example .env && echo '.env file created! Please edit it with your credentials.' || echo '.env already exists'",
+    "docker:check": "docker info > /dev/null 2>&1 || (echo 'Docker is not running. Please start OrbStack/Docker Desktop.' && exit 1)",
+    "bootstrap": "npm run docker:check && npm run env:setup && npm install && npm run db:up && npm run db:wait && npm run migrate:all && echo '\n✓ Bootstrap complete! Run: npm run dev'"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "postgresql",
+    "ai"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "dotenv": "^16.4.1",
+    "form-data": "^4.0.0",
+    "grammy": "^1.30.0",
+    "langfuse": "^3.29.0",
+    "openai": "^4.68.0",
+    "pg": "^8.11.3",
+    "uuid": "^10.0.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@types/pg": "^8.11.0",
+    "@types/uuid": "^10.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}

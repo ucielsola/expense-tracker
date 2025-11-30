@@ -1,0 +1,13 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Web frontend for the finance tracker",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Frontend not yet implemented. See WIP.md'",
+    "build": "echo 'Frontend not yet implemented. See WIP.md'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,19 @@
+-- Migration: Customize category names (optional)
+-- This migration can be used to customize category names if needed
+-- By default, categories use English names from the initial schema
+
+-- Example: Uncomment to translate to another language
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Salary';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Food & Groceries';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Transport';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Entertainment';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Utilities';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Rent';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Healthcare';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Shopping';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Travel';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Education';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Subscriptions';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Business Expenses';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Savings';
+-- UPDATE categories SET name = 'Custom Name' WHERE name = 'Other';
